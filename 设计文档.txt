@@ -1,0 +1,40 @@
+
+
+
+
+2/26
+注册、登录、COOKIE/SESSION
+在数据库中增加用户登录用户名和密码的列
+alter table list add username varchar(32) not null after id, add password varchar(40) not null after username
+
+增加注册日期：
+alter table list add join_date DATETIME  after password
+
+2/28
+把留言板上线：
+做的工作：
+1)创建数据库 
+数据库:	daiguang_guestbook
+主机:	localhost
+用户名:	daiguang_root
+密码:	19890606
+2.修改文件中的数据库连接参数
+3.弄懂了怎么样使php运行：
+在地址栏输入http://daiguangming.org/MyGusetBook/ 不能直接在文件管理器中打开
+4.创建数据表list
+CREATE TABLE `list` (
+  `id` INT AUTO_INCREMENT,
+  `username` VARCHAR(32),
+  `password` VARCHAR(40),
+  `join_date` DATETIME,
+  `name` VARCHAR(32),
+  `email` VARCHAR(32),
+  `qq` VARCHAR(32),
+  `liuyan` VARCHAR(100),
+   PRIMARY KEY (`id`)
+);
+5.终于解决了乱码问题
+alter table `W` modify column `CONTENT` varchar(30) character set utf8 not null;
+是表中字段的乱码。尼玛，搞了我这么长时间。
+
+
